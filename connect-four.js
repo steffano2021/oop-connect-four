@@ -5,12 +5,22 @@ let game;
 function updateUI() {
     let boardHolderID = document.getElementById('board-holder')
     let gameName = document.getElementById('game-name')
+    let chipOnTop = document.getElementById('click-targets')
     if (!game) {
         boardHolderID.classList.add('is-invisible')
     } else {
         boardHolderID.classList.remove('is-invisible')
         gameName.innerHTML = game.getName();
     }
+
+    if(game.currentPlayer === 1){
+        chipOnTop.classList.add('red');
+        chipOnTop.classList.remove('black');
+    } else {
+        chipOnTop.classList.remove('red');
+        chipOnTop.classList.add('black');
+    }
+
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -41,6 +51,11 @@ window.addEventListener('DOMContentLoaded', () => {
         playerOneID.value = '';
         playerTwoID.value = '';
         checkNames();
+        updateUI();
+    })
+
+    targets.addEventListener('click', event => {  //??
+        game.playInColumn();
         updateUI();
     })
 })
