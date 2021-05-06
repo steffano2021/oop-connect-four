@@ -6,10 +6,15 @@ export class Game {
         this.playerTwo = playerTwo;
         this.currentPlayer = 1;
         this.columns = [new Column(), new Column(), new Column(), new Column(), new Column(), new Column(), new Column()]
+        this.winnerNumber = 0;
     }
 
     getName(){
-        return `${this.playerOne} vs. ${this.playerTwo}`
+        if (this.winnerNumber === 3){
+            return `${this.playerOne} ties with ${this.playerTwo}`
+        } else {
+            return `${this.playerOne} vs. ${this.playerTwo}`
+        }
     }
 
     playInColumn(columnIndex){
@@ -21,6 +26,15 @@ export class Game {
         } else {
             this.currentPlayer = 1;
         }
+
+        this.checkForTie();
+    }
+
+    checkForTie(){
+        for(let i = 0; i < 7; i++){
+            if (!this.isColumnFull(i)) return
+        }
+        this.winnerNumber = 3;
     }
 
     getTokenAt(rowIndex, columnIndex){
