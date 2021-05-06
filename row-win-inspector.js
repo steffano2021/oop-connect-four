@@ -16,9 +16,10 @@ export class RowWinInspector{
                 return 0
             } else {
                 return valueAtColumn0
+                }
             }
-            }
-        }
+        };
 
     }
+
 }
