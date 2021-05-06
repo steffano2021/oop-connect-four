@@ -13,9 +13,8 @@ export class Game {
     }
 
     playInColumn(columnIndex){
-
-       let currentColumn = this.columns[columnIndex]
-        currentColumn.add(this.currentPlayer);
+        let currentColumn = this.columns[columnIndex]
+        currentColumn.add(this.currentPlayer); //column add method
 
         if (this.currentPlayer === 1){
             this.currentPlayer = 2;
@@ -26,7 +25,7 @@ export class Game {
 
     getTokenAt(rowIndex, columnIndex){
         let currentColumn = this.columns[columnIndex];
-        return currentColumn.getTokenAt(rowIndex); //
+        return currentColumn.getTokenAt(rowIndex);  //column getToken method
     }
 
 }
