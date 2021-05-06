@@ -1,21 +1,24 @@
-import {Column} from "./column.js"
-
 export class ColumnWinInspector {
     constructor(column){
         this.column = column;
     }
 
-    inspect(){  //how to bring in the token array?
+    inspect(){
         let counter = 0;
         let winner;
-        for(let i = 0; i <Column.token.length; i++){
-            if(token[i] === token[i+1]){
+        let tokenArr = this.column.tokens;
+        for(let i = 1; i <tokenArr.length; i++){
+
+            if(tokenArr[i-1] === tokenArr[i]){
                 counter++;
-                winner = token[i];
+                winner = tokenArr[i];
             } else{
                 counter = 0;
             }
         }
+        console.log(tokenArr, "arr")
+        console.log(counter, "counter");
+        console.log(winner, "winner")
 
         if(counter >= 3){
             return winner;
