@@ -95,7 +95,10 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             return
         }
+
+        if(game.winnerNumber === 0){
         game.playInColumn(circlePosition);
         updateUI();
+        }
     })
 })
