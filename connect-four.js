@@ -28,13 +28,22 @@ function updateUI() {
         for (let j = 0; j < 7; j++){
             let columnIndex = j;
             let squareSelected = document.getElementById(`square-${rowIndex}-${columnIndex}`);
+            squareSelected.innerHTML = '';
             let tokenValue = game.getTokenAt(rowIndex, columnIndex)
 
-            squareSelected.innerHTML = ''; //we left off hereeeeeeee
+            if (tokenValue === 1){
+                let newDiv = document.createElement('div')
+                newDiv.classList.add('token','red')
+                squareSelected.appendChild(newDiv);
 
+            } else if (tokenValue === 2){
+                let newDiv2 = document.createElement('div')
+                newDiv2.classList.add('token','black');
+                squareSelected.appendChild(newDiv2);
+
+            }
         }
     }
-
 }
 
 window.addEventListener('DOMContentLoaded', () => {
