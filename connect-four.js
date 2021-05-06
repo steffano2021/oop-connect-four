@@ -44,6 +44,16 @@ function updateUI() {
             }
         }
     }
+
+    for(let k = 0; k < 7; k++){
+        let columnTarget = document.getElementById(`column-${k}`)
+
+        if (game.isColumnFull(k)){
+            columnTarget.classList.add('full')
+        } else {
+            columnTarget.classList.remove('full')
+        }
+    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
