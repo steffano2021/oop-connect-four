@@ -51,6 +51,7 @@ export class Game {
     }
 
     isColumnFull(columnIndex){
+        if(this.winnerNumber > 0) return true;
         let currentColumn = this.columns[columnIndex];
         return currentColumn.isFull();
     }
@@ -59,7 +60,7 @@ export class Game {
         if(this.winnerNumber > 0) return;
         for(let i = 0; i < 7; i++){
             let columnInspector = new ColumnWinInspector(this.columns[i]);
-            console.log("inspector", columnInspector)
+
             if(columnInspector.inspect() === 1){
                 this.winnerNumber = 1;
                 return;

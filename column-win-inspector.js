@@ -16,9 +16,6 @@ export class ColumnWinInspector {
                 counter = 0;
             }
         }
-        console.log(tokenArr, "arr")
-        console.log(counter, "counter");
-        console.log(winner, "winner")
 
         if(counter >= 3){
             return winner;
